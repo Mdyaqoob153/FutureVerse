@@ -78,7 +78,7 @@ export default function Earth() {
 
     if (groupRef.current) {
       groupRef.current.position.y =
-        (isMobile ? -1.2 : 0.6) +
+        (isMobile ? -1.6 : 0.6) +
         Math.sin(time * 0.4) * 0.12;
     }
 
