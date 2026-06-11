@@ -27,17 +27,15 @@ export default function Hero() {
 
   return (
     <div
-      style={{
-        position: "absolute",
-        top: "110px",
-        left: "8%",
-        width: "90%",
-        maxWidth: "750px",
-        color: "white",
-        zIndex: 10,
-        textShadow: "0px 0px 2px rgba(255,255,255,0.15)",
-      }}
-    >
+  style={{
+    width: "90%",
+    maxWidth: "750px",
+    marginLeft: "8%",
+    paddingTop: "140px",
+    color: "white",
+    zIndex: 10,
+  }}
+>
       {/* Greeting */}
 
       <p

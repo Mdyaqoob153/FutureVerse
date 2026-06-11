@@ -40,11 +40,12 @@ function App() {
     position: "relative",
     zIndex: 10,
     minHeight: "100vh",
-    paddingBottom: "180px",
+    display: "flex",
+    alignItems: "flex-start",
   }}
 >
-    <Hero />
-  </section>
+  <Hero />
+</section>
 
   <About />
   <Projects />
