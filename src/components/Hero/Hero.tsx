@@ -29,12 +29,12 @@ export default function Hero() {
     <div
       style={{
         position: "absolute",
-        top: "50%",
+        top: "130px",
         left: "8%",
-        transform: "translateY(-50%)",
+        width: "90%",
+        maxWidth: "750px",
         color: "white",
         zIndex: 10,
-        maxWidth: "750px",
         textShadow: "0px 0px 2px rgba(255,255,255,0.15)",
       }}
     >
@@ -56,7 +56,7 @@ export default function Hero() {
 
       <h1
         style={{
-          fontSize: "5.5rem",
+          fontSize: "clamp(3.5rem, 8vw, 5.5rem)",
           fontWeight: 900,
           lineHeight: 0.95,
           letterSpacing: "-3px",
@@ -122,11 +122,11 @@ export default function Hero() {
 
       <p
         style={{
-          fontSize: "1.2rem",
+          fontSize: "1.15rem",
           color: "#d1d5db",
           lineHeight: 2,
           maxWidth: "700px",
-          marginBottom: "2.5rem",
+          marginBottom: "2rem",
         }}
       >
         Final-year B.Tech student specializing in Internet of Things,
@@ -136,14 +136,38 @@ export default function Hero() {
         that solve real-world challenges.
       </p>
 
+      {/* Focus Card */}
+
+      <div
+        style={{
+          padding: "1rem 1.5rem",
+          borderRadius: "18px",
+          background: "rgba(59,130,246,0.08)",
+          border: "1px solid rgba(59,130,246,0.2)",
+          marginBottom: "2.5rem",
+          maxWidth: "650px",
+        }}
+      >
+        <p
+          style={{
+            color: "#cbd5e1",
+            lineHeight: 1.8,
+          }}
+        >
+          Currently focused on Software Engineering, Artificial
+          Intelligence, Machine Learning, Full-Stack Development,
+          and Product-Based Company opportunities.
+        </p>
+      </div>
+
       {/* Stats */}
 
       <div
         style={{
           display: "flex",
+          flexWrap: "wrap",
           gap: "3rem",
           marginBottom: "2.5rem",
-          flexWrap: "wrap",
         }}
       >
         <div>
@@ -153,7 +177,7 @@ export default function Hero() {
               fontSize: "2rem",
             }}
           >
-            30+
+            34+
           </h2>
 
           <p
@@ -172,7 +196,7 @@ export default function Hero() {
               fontSize: "2rem",
             }}
           >
-            3+
+            4+
           </h2>
 
           <p
@@ -204,7 +228,7 @@ export default function Hero() {
         </div>
       </div>
 
-      {/* Main Buttons */}
+      {/* Buttons */}
 
       <div
         style={{
@@ -255,7 +279,7 @@ export default function Hero() {
       <div
         style={{
           display: "flex",
-          gap: "1rem",
+          gap: "1.5rem",
           flexWrap: "wrap",
         }}
       >
@@ -266,6 +290,7 @@ export default function Hero() {
           style={{
             color: "#94a3b8",
             fontWeight: 600,
+            textDecoration: "none",
           }}
         >
           GitHub →
@@ -278,6 +303,7 @@ export default function Hero() {
           style={{
             color: "#94a3b8",
             fontWeight: 600,
+            textDecoration: "none",
           }}
         >
           LinkedIn →
