@@ -1,0 +1,183 @@
+/* =========================
+   GLOBAL APP STYLES
+========================= */
+
+#root {
+  width: 100%;
+  min-height: 100vh;
+}
+
+/* =========================
+   SCROLLBAR
+========================= */
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #020617;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(59, 130, 246, 0.6);
+  border-radius: 999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(59, 130, 246, 0.9);
+}
+
+/* =========================
+   SELECTION
+========================= */
+
+::selection {
+  background: rgba(59, 130, 246, 0.4);
+  color: white;
+}
+
+/* =========================
+   SMOOTH ANIMATIONS
+========================= */
+
+* {
+  transition:
+    background-color 0.3s ease,
+    border-color 0.3s ease,
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+/* =========================
+   BUTTONS
+========================= */
+
+button:hover {
+  transform: translateY(-2px);
+}
+
+button:active {
+  transform: translateY(0);
+}
+
+/* =========================
+   LINKS
+========================= */
+
+a {
+  transition: color 0.3s ease;
+}
+
+a:hover {
+  color: #60a5fa;
+}
+
+/* =========================
+   SECTION ANIMATION
+========================= */
+
+section {
+  position: relative;
+}
+
+/* =========================
+   GLASS CARD EFFECT
+========================= */
+
+.glass-card {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(12px);
+}
+
+/* =========================
+   PROJECT CARD HOVER
+========================= */
+
+.project-card:hover {
+  transform: translateY(-8px);
+  border-color: rgba(59, 130, 246, 0.3);
+  box-shadow:
+    0 10px 30px rgba(59, 130, 246, 0.15);
+}
+
+/* =========================
+   SKILL TAG HOVER
+========================= */
+
+.skill-tag:hover {
+  transform: scale(1.05);
+  border-color: rgba(59, 130, 246, 0.4);
+}
+
+/* =========================
+   NAVBAR EFFECT
+========================= */
+
+.nav-link:hover {
+  color: #60a5fa;
+}
+
+/* =========================
+   HERO GLOW
+========================= */
+
+.hero-glow {
+  position: absolute;
+  width: 500px;
+  height: 500px;
+  background: rgba(59, 130, 246, 0.08);
+  border-radius: 50%;
+  filter: blur(120px);
+  z-index: 0;
+}
+
+/* =========================
+   FOOTER
+========================= */
+
+footer {
+  position: relative;
+  overflow: hidden;
+}
+
+/* =========================
+   RESPONSIVE DESIGN
+========================= */
+
+@media (max-width: 1024px) {
+  h1 {
+    font-size: 4rem !important;
+  }
+
+  h2 {
+    font-size: 3rem !important;
+  }
+}
+
+@media (max-width: 768px) {
+  h1 {
+    font-size: 3rem !important;
+  }
+
+  h2 {
+    font-size: 2.3rem !important;
+  }
+
+  section {
+    padding-left: 5% !important;
+    padding-right: 5% !important;
+  }
+}
+
+@media (max-width: 480px) {
+  h1 {
+    font-size: 2.4rem !important;
+  }
+
+  h2 {
+    font-size: 2rem !important;
+  }
+}
