@@ -35,13 +35,14 @@ function App() {
   </div>
 
   <section
-    id="home"
-    style={{
-      position: "relative",
-      zIndex: 10,
-      height: "100vh",
-    }}
-  >
+  id="home"
+  style={{
+    position: "relative",
+    zIndex: 10,
+    minHeight: "100vh",
+    paddingBottom: "180px",
+  }}
+>
     <Hero />
   </section>
 

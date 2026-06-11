@@ -46,11 +46,11 @@ export default function About() {
       id="about"
       style={{
         minHeight: "100vh",
-        position: "relative",
-        zIndex: 10,
-        maxWidth: "1400px",
-        margin: "0 auto",
-        padding: "120px 8%",
+  position: "relative",
+  zIndex: 10,
+  maxWidth: "1200px",
+  margin: "0 auto",
+  padding: "120px 8%",
         color: "white",
         background: "transparent",
       }}

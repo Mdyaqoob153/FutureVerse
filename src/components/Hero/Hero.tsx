@@ -29,7 +29,7 @@ export default function Hero() {
     <div
       style={{
         position: "absolute",
-        top: "130px",
+        top: "110px",
         left: "8%",
         width: "90%",
         maxWidth: "750px",

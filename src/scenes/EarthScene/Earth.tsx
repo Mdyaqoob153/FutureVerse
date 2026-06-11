@@ -8,22 +8,22 @@ export default function Earth() {
   const glowRef = useRef<THREE.Mesh>(null!);
   const groupRef = useRef<THREE.Group>(null!);
 
-  const rotationSpeed = useRef(0.002);
+  const rotationSpeed = useRef(0.0025);
 
   const dayTexture = useTexture(
-  "/textures/earth_day.jpg"
-);
+    "/textures/earth_day.jpg"
+  );
 
   useEffect(() => {
     let timeout: number;
 
     const handleScroll = () => {
-      rotationSpeed.current = 0.02;
+      rotationSpeed.current = 0.025;
 
       clearTimeout(timeout);
 
       timeout = window.setTimeout(() => {
-        rotationSpeed.current = 0.002;
+        rotationSpeed.current = 0.0025;
       }, 250);
     };
 
@@ -37,39 +37,43 @@ export default function Earth() {
     const time = state.clock.getElapsedTime();
 
     // Earth Rotation
+
     if (earthRef.current) {
       earthRef.current.rotation.y += rotationSpeed.current;
     }
 
     // Atmosphere Rotation
+
     if (glowRef.current) {
-      glowRef.current.rotation.y += rotationSpeed.current;
+      glowRef.current.rotation.y += rotationSpeed.current * 0.8;
     }
 
-    // Floating Effect
+    // Floating Animation
+
     if (groupRef.current) {
       groupRef.current.position.y =
-        Math.sin(time * 0.5) * 0.15;
+        0.4 + Math.sin(time * 0.4) * 0.12;
     }
 
-    // Glow Pulse
+    // Atmosphere Pulse
+
     if (glowRef.current) {
       const material =
         glowRef.current.material as THREE.MeshBasicMaterial;
 
       material.opacity =
-        0.12 + Math.sin(time * 2) * 0.015;
+        0.15 + Math.sin(time * 1.8) * 0.02;
     }
   });
 
   return (
     <group
       ref={groupRef}
-      position={[3.3, 0, 0]}
+      position={[3.2, 0.4, 0]}
     >
       {/* Earth */}
       <mesh ref={earthRef}>
-        <sphereGeometry args={[1.65, 128, 128]} />
+        <sphereGeometry args={[1.8, 128, 128]} />
 
         <meshStandardMaterial
           map={dayTexture}
@@ -78,14 +82,14 @@ export default function Earth() {
         />
       </mesh>
 
-      {/* Atmosphere */}
+      {/* Atmosphere Glow */}
       <mesh ref={glowRef}>
-        <sphereGeometry args={[1.75, 128, 128]} />
+        <sphereGeometry args={[1.92, 128, 128]} />
 
         <meshBasicMaterial
           color="#60a5fa"
           transparent
-          opacity={0.12}
+          opacity={0.15}
         />
       </mesh>
     </group>
