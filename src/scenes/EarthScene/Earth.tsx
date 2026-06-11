@@ -11,8 +11,8 @@ export default function Earth() {
   const rotationSpeed = useRef(0.002);
 
   const dayTexture = useTexture(
-    "/src/assets/textures/earth_day.jpg"
-  );
+  "/textures/earth_day.jpg"
+);
 
   useEffect(() => {
     let timeout: number;
