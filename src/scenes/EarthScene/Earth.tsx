@@ -69,7 +69,7 @@ export default function Earth() {
   return (
     <group
       ref={groupRef}
-      position={[3.2, 0.4, 0]}
+      position={[2.8, 0.6, 0]}
     >
       {/* Earth */}
       <mesh ref={earthRef}>

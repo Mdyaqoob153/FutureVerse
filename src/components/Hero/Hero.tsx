@@ -31,7 +31,7 @@ export default function Hero() {
     width: "90%",
     maxWidth: "750px",
     marginLeft: "8%",
-    paddingTop: "140px",
+    paddingTop: "120px",
     color: "white",
     zIndex: 10,
   }}
