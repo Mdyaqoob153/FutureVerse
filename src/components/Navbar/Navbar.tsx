@@ -1,4 +1,30 @@
+import { useState, useEffect } from "react";
+
 export default function Navbar() {
+  const [mobileMenu, setMobileMenu] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const checkScreen = () => {
+      setIsMobile(window.innerWidth <= 768);
+    };
+
+    checkScreen();
+
+    window.addEventListener("resize", checkScreen);
+
+    return () =>
+      window.removeEventListener("resize", checkScreen);
+  }, []);
+
+  const scrollToSection = (id: string) => {
+    document
+      .getElementById(id)
+      ?.scrollIntoView({ behavior: "smooth" });
+
+    setMobileMenu(false);
+  };
+
   const navButtonStyle = {
     background: "transparent",
     border: "none",
@@ -11,143 +37,180 @@ export default function Navbar() {
     transition: "all 0.3s ease",
   };
 
-  const scrollToSection = (id: string) => {
-    document
-      .getElementById(id)
-      ?.scrollIntoView({ behavior: "smooth" });
-  };
+  const navItems = [
+    "home",
+    "about",
+    "projects",
+    "skills",
+    "contact",
+  ];
 
   return (
-    <nav
-      style={{
-        position: "fixed",
-        top: "20px",
-        left: "50%",
-        transform: "translateX(-50%)",
-        zIndex: 1000,
+    <>
+      {/* Navbar */}
 
-        display: "flex",
-        alignItems: "center",
-        gap: "1.5rem",
-
-        padding: "1rem 2rem",
-
-        borderRadius: "20px",
-
-        background: "rgba(15,23,42,0.65)",
-        backdropFilter: "blur(16px)",
-        WebkitBackdropFilter: "blur(16px)",
-
-        border: "1px solid rgba(255,255,255,0.08)",
-
-        boxShadow:
-          "0 8px 30px rgba(0,0,0,0.25)",
-      }}
-    >
-      {/* Logo */}
-
-      <div
+      <nav
         style={{
-          marginRight: "1rem",
-          fontWeight: 800,
-          color: "#60a5fa",
-          letterSpacing: "1px",
-          cursor: "pointer",
-        }}
-        onClick={() => scrollToSection("home")}
-      >
-        MYH
-      </div>
+          position: "fixed",
+          top: "20px",
+          left: "50%",
+          transform: "translateX(-50%)",
+          zIndex: 1000,
 
-      {/* Home */}
+          width: isMobile ? "90%" : "fit-content",
 
-      <button
-        style={navButtonStyle}
-        onClick={() => scrollToSection("home")}
-        onMouseEnter={(e) => {
-          e.currentTarget.style.color = "#60a5fa";
-          e.currentTarget.style.background =
-            "rgba(59,130,246,0.12)";
-        }}
-        onMouseLeave={(e) => {
-          e.currentTarget.style.color = "#e2e8f0";
-          e.currentTarget.style.background = "transparent";
-        }}
-      >
-        Home
-      </button>
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "space-between",
 
-      {/* About */}
+          padding: "1rem 1.5rem",
 
-      <button
-        style={navButtonStyle}
-        onClick={() => scrollToSection("about")}
-        onMouseEnter={(e) => {
-          e.currentTarget.style.color = "#60a5fa";
-          e.currentTarget.style.background =
-            "rgba(59,130,246,0.12)";
-        }}
-        onMouseLeave={(e) => {
-          e.currentTarget.style.color = "#e2e8f0";
-          e.currentTarget.style.background = "transparent";
+          borderRadius: "20px",
+
+          background: "rgba(15,23,42,0.7)",
+
+          backdropFilter: "blur(16px)",
+          WebkitBackdropFilter: "blur(16px)",
+
+          border:
+            "1px solid rgba(255,255,255,0.08)",
+
+          boxShadow:
+            "0 8px 30px rgba(0,0,0,0.25)",
         }}
       >
-        About
-      </button>
+        {/* Logo */}
 
-      {/* Projects */}
+        <div
+          onClick={() => scrollToSection("home")}
+          style={{
+            fontWeight: 800,
+            color: "#60a5fa",
+            letterSpacing: "1px",
+            cursor: "pointer",
+            fontSize: "1.1rem",
+          }}
+        >
+          MYH
+        </div>
 
-      <button
-        style={navButtonStyle}
-        onClick={() => scrollToSection("projects")}
-        onMouseEnter={(e) => {
-          e.currentTarget.style.color = "#60a5fa";
-          e.currentTarget.style.background =
-            "rgba(59,130,246,0.12)";
-        }}
-        onMouseLeave={(e) => {
-          e.currentTarget.style.color = "#e2e8f0";
-          e.currentTarget.style.background = "transparent";
-        }}
-      >
-        Projects
-      </button>
+        {/* Desktop Menu */}
 
-      {/* Skills */}
+        {!isMobile && (
+          <div
+            style={{
+              display: "flex",
+              alignItems: "center",
+              gap: "1rem",
+              marginLeft: "2rem",
+            }}
+          >
+            {navItems.map((item) => (
+              <button
+                key={item}
+                style={navButtonStyle}
+                onClick={() =>
+                  scrollToSection(item)
+                }
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.color =
+                    "#60a5fa";
 
-      <button
-        style={navButtonStyle}
-        onClick={() => scrollToSection("skills")}
-        onMouseEnter={(e) => {
-          e.currentTarget.style.color = "#60a5fa";
-          e.currentTarget.style.background =
-            "rgba(59,130,246,0.12)";
-        }}
-        onMouseLeave={(e) => {
-          e.currentTarget.style.color = "#e2e8f0";
-          e.currentTarget.style.background = "transparent";
-        }}
-      >
-        Skills
-      </button>
+                  e.currentTarget.style.background =
+                    "rgba(59,130,246,0.12)";
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.color =
+                    "#e2e8f0";
 
-      {/* Contact */}
+                  e.currentTarget.style.background =
+                    "transparent";
+                }}
+              >
+                {item.charAt(0).toUpperCase() +
+                  item.slice(1)}
+              </button>
+            ))}
+          </div>
+        )}
 
-      <button
-        style={navButtonStyle}
-        onClick={() => scrollToSection("contact")}
-        onMouseEnter={(e) => {
-          e.currentTarget.style.color = "#60a5fa";
-          e.currentTarget.style.background =
-            "rgba(59,130,246,0.12)";
-        }}
-        onMouseLeave={(e) => {
-          e.currentTarget.style.color = "#e2e8f0";
-          e.currentTarget.style.background = "transparent";
-        }}
-      >
-        Contact
-      </button>
-    </nav>
+        {/* Mobile Menu Button */}
+
+        {isMobile && (
+          <button
+            onClick={() =>
+              setMobileMenu(!mobileMenu)
+            }
+            style={{
+              background: "transparent",
+              border: "none",
+              color: "white",
+              fontSize: "1.5rem",
+              cursor: "pointer",
+            }}
+          >
+            ☰
+          </button>
+        )}
+      </nav>
+
+      {/* Mobile Dropdown */}
+
+      {isMobile && mobileMenu && (
+        <div
+          style={{
+            position: "fixed",
+            top: "90px",
+            left: "50%",
+            transform: "translateX(-50%)",
+
+            width: "90%",
+
+            zIndex: 999,
+
+            borderRadius: "20px",
+
+            background: "rgba(15,23,42,0.9)",
+
+            backdropFilter: "blur(16px)",
+
+            border:
+              "1px solid rgba(255,255,255,0.08)",
+
+            overflow: "hidden",
+          }}
+        >
+          {navItems.map((item) => (
+            <button
+              key={item}
+              onClick={() =>
+                scrollToSection(item)
+              }
+              style={{
+                width: "100%",
+
+                padding: "1rem",
+
+                background: "transparent",
+
+                border: "none",
+
+                color: "white",
+
+                cursor: "pointer",
+
+                fontSize: "1rem",
+
+                borderBottom:
+                  "1px solid rgba(255,255,255,0.05)",
+              }}
+            >
+              {item.charAt(0).toUpperCase() +
+                item.slice(1)}
+            </button>
+          ))}
+        </div>
+      )}
+    </>
   );
 }

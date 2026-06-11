@@ -12,88 +12,99 @@ import EarthCanvas from "./scenes/EarthScene/EarthCanvas";
 function App() {
   return (
     <>
-      {/* =========================
-          NAVIGATION
-      ========================== */}
-      <Navbar />
-
-      {/* =========================
-          HERO SECTION
-      ========================== */}
-      <>
-  <div
-    style={{
-      position: "fixed",
-      top: 0,
-      left: 0,
-      width: "100%",
-      height: "100%",
-      zIndex: 0,
-    }}
-  >
-    <EarthCanvas />
-  </div>
-
-  <section
-  id="home"
-  style={{
-    position: "relative",
-    zIndex: 10,
-    minHeight: "100vh",
-    display: "flex",
-    alignItems: "flex-start",
-  }}
->
-  <Hero />
-</section>
-
-  <About />
-  <Projects />
-  <Skills />
-  <Contact />
-</>
-
-    
-      <footer
+      {/* 3D Background */}
+      <div
         style={{
-          background: "#000",
-          color: "#94a3b8",
-          textAlign: "center",
-          padding: "4rem 2rem",
-          borderTop: "1px solid rgba(255,255,255,0.08)",
+          position: "fixed",
+          inset: 0,
+          zIndex: 0,
+          overflow: "hidden",
         }}
       >
-        <h3
+        <EarthCanvas />
+      </div>
+
+      {/* Main Content */}
+      <div
+        style={{
+          position: "relative",
+          zIndex: 10,
+          width: "100%",
+        }}
+      >
+        {/* Navbar */}
+        <Navbar />
+
+        {/* Home */}
+        <section
+          id="home"
           style={{
-            color: "white",
-            marginBottom: "1rem",
-            fontSize: "1.5rem",
+            minHeight: "100vh",
+            width: "100%",
+            position: "relative",
+            display: "flex",
+            alignItems: "center",
           }}
         >
-          Mohammed Yaqoob Hussain
-        </h3>
+          <Hero />
+        </section>
 
-        <p
+        {/* About */}
+        <About />
+
+        {/* Projects */}
+        <Projects />
+
+        {/* Skills */}
+        <Skills />
+
+        {/* Contact */}
+        <Contact />
+
+        {/* Footer */}
+        <footer
           style={{
-            marginBottom: "1rem",
-            color: "#cbd5e1",
+            background: "transparent",
+            color: "#94a3b8",
+            textAlign: "center",
+            padding: "5rem 2rem",
+            borderTop: "1px solid rgba(255,255,255,0.08)",
+            backdropFilter: "blur(8px)",
           }}
         >
-          IoT Engineer • AI & Machine Learning Enthusiast • Software Developer
-        </p>
+          <h3
+            style={{
+              color: "white",
+              marginBottom: "1rem",
+              fontSize: "1.5rem",
+              fontWeight: 700,
+            }}
+          >
+            Mohammed Yaqoob Hussain
+          </h3>
 
-        <p
-          style={{
-            marginBottom: "1rem",
-          }}
-        >
-          Hyderabad, India
-        </p>
+          <p
+            style={{
+              marginBottom: "1rem",
+              color: "#cbd5e1",
+            }}
+          >
+            IoT Engineer • AI/ML Enthusiast • Software Developer
+          </p>
 
-        <p>
-          © 2026 Mohammed Yaqoob Hussain. All Rights Reserved.
-        </p>
-      </footer>
+          <p
+            style={{
+              marginBottom: "1rem",
+            }}
+          >
+            Hyderabad, India
+          </p>
+
+          <p>
+            © 2026 Mohammed Yaqoob Hussain. All Rights Reserved.
+          </p>
+        </footer>
+      </div>
     </>
   );
 }

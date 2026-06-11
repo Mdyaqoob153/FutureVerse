@@ -9,7 +9,7 @@ export default function Projects() {
       title: "Gesture Controlled Smart Wheelchair",
       image: wheelchairImg,
       description:
-        "An IoT-based smart wheelchair controlled using hand gestures and ESP-NOW communication for seamless real-time navigation.",
+        "An IoT-powered smart wheelchair controlled through hand gestures using ESP-NOW communication, enabling real-time navigation and enhanced accessibility.",
       technologies: [
         "ESP32",
         "ESP-NOW",
@@ -23,7 +23,7 @@ export default function Projects() {
       title: "AI Garbage Classification",
       image: garbageImg,
       description:
-        "Deep learning model capable of classifying waste into multiple categories using CNNs and computer vision techniques.",
+        "Deep learning-based waste classification system capable of identifying multiple garbage categories using CNNs and computer vision techniques.",
       technologies: [
         "TensorFlow",
         "CNN",
@@ -37,7 +37,7 @@ export default function Projects() {
       title: "Handwritten Digit Recognition",
       image: digitImg,
       description:
-        "Neural network based handwritten digit recognition system trained using deep learning techniques.",
+        "Neural network-powered digit recognition application trained using deep learning algorithms to accurately classify handwritten numbers.",
       technologies: [
         "Python",
         "TensorFlow",
@@ -48,10 +48,10 @@ export default function Projects() {
     },
 
     {
-      title: "FutureVerse Portfolio",
+      title: "FutureVerse 3D Portfolio",
       image: futureverseImg,
       description:
-        "Interactive 3D portfolio website built with React, TypeScript, Three.js and React Three Fiber.",
+        "Interactive 3D developer portfolio featuring React, TypeScript, Three.js, React Three Fiber, immersive animations, and responsive design.",
       technologies: [
         "React",
         "TypeScript",
@@ -62,21 +62,39 @@ export default function Projects() {
     },
   ];
 
+  const stats = [
+    {
+      value: "4+",
+      label: "Featured Projects",
+    },
+    {
+      value: "AI",
+      label: "Machine Learning & Deep Learning",
+    },
+    {
+      value: "IoT",
+      label: "Smart Embedded Systems",
+    },
+    {
+      value: "Web",
+      label: "Modern Frontend Development",
+    },
+  ];
+
   return (
     <section
       id="projects"
       style={{
-        minHeight: "100vh",
-        position: "relative",
-        zIndex: 10,
+        width: "100%",
         maxWidth: "1400px",
         margin: "0 auto",
         padding: "120px 8%",
-        background: "transparent",
+        position: "relative",
+        zIndex: 10,
         color: "white",
       }}
     >
-      {/* Header */}
+      {/* Section Label */}
 
       <p
         style={{
@@ -89,9 +107,11 @@ export default function Projects() {
         MY WORK
       </p>
 
+      {/* Heading */}
+
       <h2
         style={{
-          fontSize: "4rem",
+          fontSize: "clamp(2.8rem, 6vw, 4.5rem)",
           fontWeight: 800,
           marginBottom: "1.5rem",
         }}
@@ -99,42 +119,43 @@ export default function Projects() {
         Featured Projects
       </h2>
 
+      {/* Description */}
+
       <p
         style={{
           color: "#cbd5e1",
-          fontSize: "1.2rem",
-          maxWidth: "850px",
+          fontSize: "1.15rem",
           lineHeight: 2,
+          maxWidth: "900px",
           marginBottom: "4rem",
         }}
       >
-        Projects spanning Artificial Intelligence,
-        Machine Learning, Internet of Things,
-        Deep Learning, and Modern Web Development.
+        A collection of projects showcasing my expertise in
+        Artificial Intelligence, Machine Learning,
+        Internet of Things, Deep Learning, and Modern
+        Web Development.
       </p>
 
       {/* Projects Grid */}
 
-      <div
-        style={{
-          display: "grid",
-          gridTemplateColumns:
-            "repeat(auto-fit,minmax(400px,1fr))",
-          gap: "2rem",
-        }}
-      >
+<div
+  style={{
+    display: "grid",
+    gridTemplateColumns:
+      "repeat(auto-fit,minmax(500px,1fr))",
+    gap: "2rem",
+  }}
+>
         {projects.map((project, index) => (
           <div
-            key={index}
+            key={project.title}
             style={{
               overflow: "hidden",
               borderRadius: "24px",
-              background:
-                "rgba(255,255,255,0.05)",
-              backdropFilter: "blur(12px)",
-              border:
-                "1px solid rgba(255,255,255,0.08)",
-              transition: "0.3s ease",
+              background: "rgba(255,255,255,0.05)",
+              border: "1px solid rgba(255,255,255,0.08)",
+              backdropFilter: "blur(14px)",
+              transition: "all 0.3s ease",
             }}
           >
             {/* Image */}
@@ -144,7 +165,7 @@ export default function Projects() {
               alt={project.title}
               style={{
                 width: "100%",
-                height: "250px",
+                height: "240px",
                 objectFit: "cover",
               }}
             />
@@ -159,8 +180,8 @@ export default function Projects() {
               <p
                 style={{
                   color: "#60a5fa",
-                  marginBottom: "0.8rem",
                   fontWeight: 700,
+                  marginBottom: "0.8rem",
                 }}
               >
                 Project {index + 1}
@@ -168,7 +189,7 @@ export default function Projects() {
 
               <h3
                 style={{
-                  fontSize: "1.8rem",
+                  fontSize: "1.7rem",
                   marginBottom: "1rem",
                 }}
               >
@@ -185,7 +206,7 @@ export default function Projects() {
                 {project.description}
               </p>
 
-              {/* Technologies */}
+              {/* Tech Stack */}
 
               <div
                 style={{
@@ -219,6 +240,7 @@ export default function Projects() {
               <div
                 style={{
                   display: "flex",
+                  flexWrap: "wrap",
                   gap: "1rem",
                 }}
               >
@@ -227,7 +249,7 @@ export default function Projects() {
                   target="_blank"
                   rel="noreferrer"
                   style={{
-                    padding: "12px 20px",
+                    padding: "12px 22px",
                     borderRadius: "12px",
                     background: "#2563eb",
                     color: "white",
@@ -240,7 +262,7 @@ export default function Projects() {
 
                 <button
                   style={{
-                    padding: "12px 20px",
+                    padding: "12px 22px",
                     borderRadius: "12px",
                     border:
                       "1px solid rgba(255,255,255,0.15)",
@@ -259,92 +281,47 @@ export default function Projects() {
         ))}
       </div>
 
-      {/* Bottom Stats */}
+      {/* Stats */}
 
       <div
         style={{
-          display: "flex",
-          justifyContent: "space-between",
-          flexWrap: "wrap",
-          gap: "3rem",
           marginTop: "6rem",
+          display: "grid",
+          gridTemplateColumns:
+            "repeat(auto-fit,minmax(220px,1fr))",
+          gap: "2rem",
         }}
       >
-        <div>
-          <h2
+        {stats.map((stat) => (
+          <div
+            key={stat.label}
             style={{
-              color: "#3b82f6",
-              fontSize: "3rem",
+              padding: "2rem",
+              borderRadius: "24px",
+              background: "rgba(255,255,255,0.05)",
+              border: "1px solid rgba(255,255,255,0.08)",
+              backdropFilter: "blur(14px)",
             }}
           >
-            4+
-          </h2>
+            <h2
+              style={{
+                color: "#3b82f6",
+                fontSize: "3rem",
+                marginBottom: "0.5rem",
+              }}
+            >
+              {stat.value}
+            </h2>
 
-          <p
-            style={{
-              color: "#94a3b8",
-            }}
-          >
-            Featured Projects
-          </p>
-        </div>
-
-        <div>
-          <h2
-            style={{
-              color: "#3b82f6",
-              fontSize: "3rem",
-            }}
-          >
-            AI
-          </h2>
-
-          <p
-            style={{
-              color: "#94a3b8",
-            }}
-          >
-            Machine Learning & Deep Learning
-          </p>
-        </div>
-
-        <div>
-          <h2
-            style={{
-              color: "#3b82f6",
-              fontSize: "3rem",
-            }}
-          >
-            IoT
-          </h2>
-
-          <p
-            style={{
-              color: "#94a3b8",
-            }}
-          >
-            Smart Embedded Systems
-          </p>
-        </div>
-
-        <div>
-          <h2
-            style={{
-              color: "#3b82f6",
-              fontSize: "3rem",
-            }}
-          >
-            Web
-          </h2>
-
-          <p
-            style={{
-              color: "#94a3b8",
-            }}
-          >
-            Modern Frontend Development
-          </p>
-        </div>
+            <p
+              style={{
+                color: "#94a3b8",
+              }}
+            >
+              {stat.label}
+            </p>
+          </div>
+        ))}
       </div>
     </section>
   );

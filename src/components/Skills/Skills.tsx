@@ -14,7 +14,7 @@ export default function Skills() {
 
     {
       icon: "🌐",
-      title: "Frontend",
+      title: "Frontend Development",
       skills: [
         "React",
         "TypeScript",
@@ -38,7 +38,7 @@ export default function Skills() {
 
     {
       icon: "📡",
-      title: "IoT & Embedded",
+      title: "IoT & Embedded Systems",
       skills: [
         "ESP32",
         "ESP-NOW",
@@ -71,18 +71,36 @@ export default function Skills() {
     },
   ];
 
+  const stats = [
+    {
+      value: "10+",
+      label: "Certifications Earned",
+    },
+    {
+      value: "34+",
+      label: "LeetCode Problems Solved",
+    },
+    {
+      value: "4+",
+      label: "Featured Projects",
+    },
+    {
+      value: "AI",
+      label: "Machine Learning Focus",
+    },
+  ];
+
   return (
     <section
       id="skills"
       style={{
-        minHeight: "100vh",
-        position: "relative",
-        zIndex: 10,
+        width: "100%",
         maxWidth: "1400px",
         margin: "0 auto",
         padding: "120px 8%",
+        position: "relative",
+        zIndex: 10,
         color: "white",
-        background: "transparent",
       }}
     >
       {/* Section Label */}
@@ -102,7 +120,7 @@ export default function Skills() {
 
       <h2
         style={{
-          fontSize: "4rem",
+          fontSize: "clamp(2.8rem, 6vw, 4.5rem)",
           fontWeight: 800,
           marginBottom: "1.5rem",
         }}
@@ -110,21 +128,22 @@ export default function Skills() {
         Skills & Technologies
       </h2>
 
-      {/* Intro */}
+      {/* Description */}
 
       <p
         style={{
           color: "#cbd5e1",
-          fontSize: "1.2rem",
+          fontSize: "1.15rem",
           lineHeight: 2,
           maxWidth: "900px",
           marginBottom: "4rem",
         }}
       >
-        A diverse technical skillset spanning software
-        engineering, artificial intelligence, machine
-        learning, IoT systems, cloud technologies, and
-        modern web development.
+        My technical expertise spans software engineering,
+        artificial intelligence, machine learning, IoT
+        systems, cloud technologies, and modern web
+        development. I enjoy combining these technologies
+        to create innovative and impactful solutions.
       </p>
 
       {/* Skill Cards */}
@@ -133,7 +152,7 @@ export default function Skills() {
         style={{
           display: "grid",
           gridTemplateColumns:
-            "repeat(auto-fit,minmax(350px,1fr))",
+            "repeat(auto-fit,minmax(300px,1fr))",
           gap: "2rem",
         }}
       >
@@ -143,12 +162,11 @@ export default function Skills() {
             style={{
               padding: "2rem",
               borderRadius: "24px",
-              background:
-                "rgba(255,255,255,0.05)",
-              backdropFilter: "blur(12px)",
+              background: "rgba(255,255,255,0.05)",
+              backdropFilter: "blur(14px)",
               border:
                 "1px solid rgba(255,255,255,0.08)",
-              transition: "0.3s ease",
+              transition: "all 0.3s ease",
             }}
           >
             {/* Category Header */}
@@ -163,7 +181,7 @@ export default function Skills() {
             >
               <span
                 style={{
-                  fontSize: "1.8rem",
+                  fontSize: "2rem",
                 }}
               >
                 {category.icon}
@@ -212,132 +230,88 @@ export default function Skills() {
         ))}
       </div>
 
-      {/* Statistics */}
+      {/* Professional Summary */}
 
       <div
         style={{
-          marginTop: "6rem",
+          marginTop: "5rem",
+          padding: "2.5rem",
+          borderRadius: "28px",
+          background: "rgba(255,255,255,0.05)",
+          border:
+            "1px solid rgba(255,255,255,0.08)",
+          backdropFilter: "blur(14px)",
+        }}
+      >
+        <h3
+          style={{
+            color: "#60a5fa",
+            fontSize: "1.8rem",
+            marginBottom: "1rem",
+          }}
+        >
+          Technical Strength
+        </h3>
+
+        <p
+          style={{
+            color: "#cbd5e1",
+            lineHeight: 2,
+            fontSize: "1.05rem",
+          }}
+        >
+          My strongest areas include Java development,
+          Artificial Intelligence, Machine Learning,
+          IoT systems, and modern frontend development.
+          Through internships, certifications, coding
+          practice, and project-based learning, I continue
+          to strengthen both my problem-solving abilities
+          and software engineering skills.
+        </p>
+      </div>
+
+      {/* Stats */}
+
+      <div
+        style={{
+          marginTop: "5rem",
           display: "grid",
           gridTemplateColumns:
-            "repeat(auto-fit,minmax(250px,1fr))",
+            "repeat(auto-fit,minmax(220px,1fr))",
           gap: "2rem",
         }}
       >
-        <div
-          style={{
-            padding: "2rem",
-            borderRadius: "24px",
-            background:
-              "rgba(255,255,255,0.05)",
-            border:
-              "1px solid rgba(255,255,255,0.08)",
-          }}
-        >
-          <h2
+        {stats.map((stat) => (
+          <div
+            key={stat.label}
             style={{
-              color: "#3b82f6",
-              fontSize: "3rem",
+              padding: "2rem",
+              borderRadius: "24px",
+              background: "rgba(255,255,255,0.05)",
+              border:
+                "1px solid rgba(255,255,255,0.08)",
+              backdropFilter: "blur(14px)",
             }}
           >
-            10+
-          </h2>
+            <h2
+              style={{
+                color: "#3b82f6",
+                fontSize: "3rem",
+                marginBottom: "0.5rem",
+              }}
+            >
+              {stat.value}
+            </h2>
 
-          <p
-            style={{
-              color: "#94a3b8",
-              marginTop: "0.5rem",
-            }}
-          >
-            Certifications Earned
-          </p>
-        </div>
-
-        <div
-          style={{
-            padding: "2rem",
-            borderRadius: "24px",
-            background:
-              "rgba(255,255,255,0.05)",
-            border:
-              "1px solid rgba(255,255,255,0.08)",
-          }}
-        >
-          <h2
-            style={{
-              color: "#3b82f6",
-              fontSize: "3rem",
-            }}
-          >
-            34+
-          </h2>
-
-          <p
-            style={{
-              color: "#94a3b8",
-              marginTop: "0.5rem",
-            }}
-          >
-            LeetCode Problems Solved
-          </p>
-        </div>
-
-        <div
-          style={{
-            padding: "2rem",
-            borderRadius: "24px",
-            background:
-              "rgba(255,255,255,0.05)",
-            border:
-              "1px solid rgba(255,255,255,0.08)",
-          }}
-        >
-          <h2
-            style={{
-              color: "#3b82f6",
-              fontSize: "3rem",
-            }}
-          >
-            4+
-          </h2>
-
-          <p
-            style={{
-              color: "#94a3b8",
-              marginTop: "0.5rem",
-            }}
-          >
-            Featured Projects
-          </p>
-        </div>
-
-        <div
-          style={{
-            padding: "2rem",
-            borderRadius: "24px",
-            background:
-              "rgba(255,255,255,0.05)",
-            border:
-              "1px solid rgba(255,255,255,0.08)",
-          }}
-        >
-          <h2
-            style={{
-              color: "#3b82f6",
-              fontSize: "3rem",
-            }}
-          >
-            AI
-          </h2>
-
-          <p
-            style={{
-              color: "#94a3b8",
-              marginTop: "0.5rem",
-            }}
-          >
-            Machine Learning Focus
-          </p>
-        </div>
+            <p
+              style={{
+                color: "#94a3b8",
+              }}
+            >
+              {stat.label}
+            </p>
+          </div>
+        ))}
       </div>
     </section>
   );

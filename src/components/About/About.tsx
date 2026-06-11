@@ -16,7 +16,7 @@ export default function About() {
       content: [
         "Artificial Intelligence",
         "Machine Learning",
-        "Software Development",
+        "Software Engineering",
       ],
     },
 
@@ -24,8 +24,8 @@ export default function About() {
       icon: "🚀",
       title: "Career Goal",
       content: [
-        "Build impactful products",
-        "Solve real-world problems",
+        "Build Impactful Products",
+        "Solve Real-World Problems",
         "Grow as a Software Engineer",
       ],
     },
@@ -36,8 +36,27 @@ export default function About() {
       content: [
         "AI & Deep Learning",
         "IoT Systems",
-        "Cloud & Full Stack Development",
+        "Cloud & Full-Stack Development",
       ],
+    },
+  ];
+
+  const stats = [
+    {
+      value: "34+",
+      label: "LeetCode Problems Solved",
+    },
+    {
+      value: "4+",
+      label: "Featured Projects",
+    },
+    {
+      value: "10+",
+      label: "Certifications Earned",
+    },
+    {
+      value: "AI",
+      label: "Machine Learning & IoT Focus",
     },
   ];
 
@@ -45,14 +64,13 @@ export default function About() {
     <section
       id="about"
       style={{
-        minHeight: "100vh",
-  position: "relative",
-  zIndex: 10,
-  maxWidth: "1200px",
-  margin: "0 auto",
-  padding: "120px 8%",
+        width: "100%",
+        maxWidth: "1400px",
+        margin: "0 auto",
+        padding: "120px 8%",
+        position: "relative",
+        zIndex: 10,
         color: "white",
-        background: "transparent",
       }}
     >
       {/* Section Label */}
@@ -72,10 +90,11 @@ export default function About() {
 
       <h2
         style={{
-          fontSize: "4rem",
+          fontSize: "clamp(2.8rem, 6vw, 4.5rem)",
           fontWeight: 800,
           lineHeight: 1.1,
           marginBottom: "2rem",
+          maxWidth: "900px",
         }}
       >
         Turning Ideas Into
@@ -87,31 +106,31 @@ export default function About() {
 
       <p
         style={{
-          fontSize: "1.2rem",
+          fontSize: "1.15rem",
           lineHeight: 2,
           color: "#cbd5e1",
           maxWidth: "950px",
           marginBottom: "4rem",
         }}
       >
-        I'm Mohammed Yaqoob Hussain, a B.Tech student
-        specializing in Internet of Things (IoT) at
-        ACE Engineering College, Hyderabad.
+        I'm Mohammed Yaqoob Hussain, a final-year B.Tech student
+        specializing in Internet of Things (IoT) at ACE Engineering
+        College, Hyderabad.
 
-        My passion lies at the intersection of Artificial
-        Intelligence, Machine Learning, Software Engineering,
-        and Intelligent Connected Systems.
+        My interests span Artificial Intelligence, Machine Learning,
+        Software Engineering, Full-Stack Development, and Intelligent
+        Connected Systems.
 
-        I enjoy building technology-driven solutions that
-        combine software, data, and hardware to solve
-        meaningful real-world challenges.
+        I enjoy building technology-driven solutions that combine
+        software, data, and hardware to solve meaningful real-world
+        challenges.
 
-        My goal is to contribute to innovative product-based
-        companies while continuously learning, building,
-        and creating impactful technology.
+        My long-term goal is to contribute to innovative product-based
+        companies while continuously learning, building, and creating
+        impactful technology.
       </p>
 
-      {/* Information Cards */}
+      {/* Cards */}
 
       <div
         style={{
@@ -127,11 +146,10 @@ export default function About() {
             style={{
               padding: "2rem",
               borderRadius: "24px",
-              background:
-                "rgba(255,255,255,0.05)",
-              backdropFilter: "blur(12px)",
-              border:
-                "1px solid rgba(255,255,255,0.08)",
+              background: "rgba(255,255,255,0.05)",
+              border: "1px solid rgba(255,255,255,0.08)",
+              backdropFilter: "blur(14px)",
+              transition: "all 0.3s ease",
             }}
           >
             <div
@@ -145,9 +163,9 @@ export default function About() {
 
             <h3
               style={{
+                color: "#60a5fa",
                 fontSize: "1.4rem",
                 marginBottom: "1rem",
-                color: "#60a5fa",
               }}
             >
               {card.title}
@@ -168,18 +186,16 @@ export default function About() {
         ))}
       </div>
 
-      {/* Journey Section */}
+      {/* Journey */}
 
       <div
         style={{
           marginTop: "5rem",
           padding: "2.5rem",
           borderRadius: "28px",
-          background:
-            "rgba(255,255,255,0.05)",
-          border:
-            "1px solid rgba(255,255,255,0.08)",
-          backdropFilter: "blur(12px)",
+          background: "rgba(255,255,255,0.05)",
+          border: "1px solid rgba(255,255,255,0.08)",
+          backdropFilter: "blur(14px)",
         }}
       >
         <h3
@@ -201,140 +217,58 @@ export default function About() {
         >
           Over the years, I have explored multiple technology
           domains including IoT, Artificial Intelligence,
-          Deep Learning, Networking, and Modern Web
-          Development.
+          Deep Learning, Networking, Cloud Computing,
+          and Modern Web Development.
 
           Through hands-on projects such as Gesture Controlled
-          Wheelchair Systems, Garbage Classification using
-          CNNs, Handwritten Digit Recognition, and the
-          FutureVerse 3D Portfolio, I continue to strengthen
-          my ability to design, build, and deploy
-          technology-driven solutions.
+          Wheelchair Systems, Garbage Classification using CNNs,
+          Handwritten Digit Recognition, and the FutureVerse 3D
+          Portfolio, I continue to strengthen my ability to design,
+          build, and deploy technology-driven solutions.
         </p>
       </div>
 
-      {/* Statistics */}
+      {/* Stats */}
 
       <div
         style={{
           marginTop: "5rem",
           display: "grid",
           gridTemplateColumns:
-            "repeat(auto-fit,minmax(250px,1fr))",
+            "repeat(auto-fit,minmax(220px,1fr))",
           gap: "2rem",
         }}
       >
-        <div
-          style={{
-            padding: "2rem",
-            borderRadius: "24px",
-            background:
-              "rgba(255,255,255,0.05)",
-            border:
-              "1px solid rgba(255,255,255,0.08)",
-          }}
-        >
-          <h2
+        {stats.map((stat) => (
+          <div
+            key={stat.label}
             style={{
-              color: "#3b82f6",
-              fontSize: "3rem",
+              padding: "2rem",
+              borderRadius: "24px",
+              background: "rgba(255,255,255,0.05)",
+              border: "1px solid rgba(255,255,255,0.08)",
+              backdropFilter: "blur(14px)",
             }}
           >
-            34+
-          </h2>
+            <h2
+              style={{
+                color: "#3b82f6",
+                fontSize: "3rem",
+                marginBottom: "0.5rem",
+              }}
+            >
+              {stat.value}
+            </h2>
 
-          <p
-            style={{
-              color: "#94a3b8",
-            }}
-          >
-            LeetCode Problems Solved
-          </p>
-        </div>
-
-        <div
-          style={{
-            padding: "2rem",
-            borderRadius: "24px",
-            background:
-              "rgba(255,255,255,0.05)",
-            border:
-              "1px solid rgba(255,255,255,0.08)",
-          }}
-        >
-          <h2
-            style={{
-              color: "#3b82f6",
-              fontSize: "3rem",
-            }}
-          >
-            4+
-          </h2>
-
-          <p
-            style={{
-              color: "#94a3b8",
-            }}
-          >
-            Featured Projects
-          </p>
-        </div>
-
-        <div
-          style={{
-            padding: "2rem",
-            borderRadius: "24px",
-            background:
-              "rgba(255,255,255,0.05)",
-            border:
-              "1px solid rgba(255,255,255,0.08)",
-          }}
-        >
-          <h2
-            style={{
-              color: "#3b82f6",
-              fontSize: "3rem",
-            }}
-          >
-            10+
-          </h2>
-
-          <p
-            style={{
-              color: "#94a3b8",
-            }}
-          >
-            Certifications Earned
-          </p>
-        </div>
-
-        <div
-          style={{
-            padding: "2rem",
-            borderRadius: "24px",
-            background:
-              "rgba(255,255,255,0.05)",
-            border:
-              "1px solid rgba(255,255,255,0.08)",
-          }}
-        >
-          <h2
-            style={{
-              color: "#3b82f6",
-              fontSize: "3rem",
-            }}
-          >
-            AI
-          </h2>
-
-          <p
-            style={{
-              color: "#94a3b8",
-            }}
-          >
-            Machine Learning & IoT Focus
-          </p>
-        </div>
+            <p
+              style={{
+                color: "#94a3b8",
+              }}
+            >
+              {stat.label}
+            </p>
+          </div>
+        ))}
       </div>
     </section>
   );

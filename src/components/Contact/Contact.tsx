@@ -42,17 +42,16 @@ export default function Contact() {
     <section
       id="contact"
       style={{
-        minHeight: "100vh",
-        position: "relative",
-        zIndex: 10,
+        width: "100%",
         maxWidth: "1400px",
         margin: "0 auto",
         padding: "120px 8%",
+        position: "relative",
+        zIndex: 10,
         color: "white",
-        background: "transparent",
       }}
     >
-      {/* Label */}
+      {/* Section Label */}
 
       <p
         style={{
@@ -69,7 +68,7 @@ export default function Contact() {
 
       <h2
         style={{
-          fontSize: "4rem",
+          fontSize: "clamp(2.8rem, 6vw, 4.5rem)",
           fontWeight: 800,
           lineHeight: 1.1,
           marginBottom: "2rem",
@@ -84,18 +83,22 @@ export default function Contact() {
 
       <p
         style={{
-          fontSize: "1.2rem",
+          fontSize: "1.15rem",
           color: "#cbd5e1",
-          maxWidth: "850px",
+          maxWidth: "900px",
           lineHeight: 2,
           marginBottom: "4rem",
         }}
       >
         I am actively seeking opportunities in Software
         Engineering, Artificial Intelligence, Machine
-        Learning, Full-Stack Development, and Internet of
-        Things. Whether you're recruiting, collaborating,
-        or building something exciting, I'd love to connect.
+        Learning, Full-Stack Development, and Internet
+        of Things.
+
+        Whether you're recruiting, building innovative
+        products, collaborating on projects, or simply
+        connecting with fellow technology enthusiasts,
+        I'd be happy to hear from you.
       </p>
 
       {/* Contact Cards */}
@@ -129,11 +132,11 @@ export default function Contact() {
                 borderRadius: "24px",
                 background:
                   "rgba(255,255,255,0.05)",
-                backdropFilter: "blur(12px)",
                 border:
                   "1px solid rgba(255,255,255,0.08)",
+                backdropFilter: "blur(14px)",
                 height: "100%",
-                transition: "0.3s ease",
+                transition: "all 0.3s ease",
               }}
             >
               <div
@@ -169,7 +172,7 @@ export default function Contact() {
         ))}
       </div>
 
-      {/* CTA Section */}
+      {/* CTA Card */}
 
       <div
         style={{
@@ -180,7 +183,7 @@ export default function Contact() {
             "rgba(255,255,255,0.05)",
           border:
             "1px solid rgba(255,255,255,0.08)",
-          backdropFilter: "blur(12px)",
+          backdropFilter: "blur(14px)",
           textAlign: "center",
         }}
       >
@@ -188,6 +191,7 @@ export default function Contact() {
           style={{
             fontSize: "2rem",
             marginBottom: "1rem",
+            color: "#ffffff",
           }}
         >
           Ready to Collaborate?
@@ -196,38 +200,88 @@ export default function Contact() {
         <p
           style={{
             color: "#cbd5e1",
-            maxWidth: "700px",
+            maxWidth: "750px",
             margin: "0 auto 2rem",
             lineHeight: 1.8,
           }}
         >
-          Open to internships, full-time opportunities,
-          freelance work, innovative projects, and
-          technology collaborations.
+          Open to internships, full-time roles,
+          freelance opportunities, innovative
+          technology projects, research collaborations,
+          and product development initiatives.
+
+          Let's create impactful solutions together.
         </p>
 
-        <button
-          onClick={() =>
-            window.open(
-              "mailto:mdyaqoob153@gmail.com",
-              "_blank"
-            )
-          }
+        <div
           style={{
-            padding: "16px 36px",
-            borderRadius: "14px",
-            border: "none",
-            background: "#2563eb",
-            color: "white",
-            cursor: "pointer",
-            fontSize: "1rem",
-            fontWeight: 700,
-            boxShadow:
-              "0 10px 25px rgba(37,99,235,0.35)",
+            display: "flex",
+            justifyContent: "center",
+            gap: "1rem",
+            flexWrap: "wrap",
           }}
         >
-          Get In Touch
-        </button>
+          <button
+            onClick={() =>
+              window.open(
+                "mailto:mdyaqoob153@gmail.com",
+                "_blank"
+              )
+            }
+            style={{
+              padding: "16px 36px",
+              borderRadius: "14px",
+              border: "none",
+              background: "#2563eb",
+              color: "white",
+              cursor: "pointer",
+              fontSize: "1rem",
+              fontWeight: 700,
+              boxShadow:
+                "0 10px 25px rgba(37,99,235,0.35)",
+            }}
+          >
+            Get In Touch
+          </button>
+
+          <a
+            href="/MDYH_General.pdf"
+            download
+            style={{
+              padding: "16px 36px",
+              borderRadius: "14px",
+              border:
+                "1px solid rgba(255,255,255,0.15)",
+              background:
+                "rgba(255,255,255,0.05)",
+              color: "white",
+              textDecoration: "none",
+              fontWeight: 700,
+            }}
+          >
+            Download Resume
+          </a>
+        </div>
+      </div>
+
+      {/* Footer Message */}
+
+      <div
+        style={{
+          marginTop: "5rem",
+          textAlign: "center",
+        }}
+      >
+        <p
+          style={{
+            color: "#64748b",
+            fontSize: "0.95rem",
+            letterSpacing: "1px",
+          }}
+        >
+          Building the future through AI, IoT, and
+          Software Engineering.
+        </p>
       </div>
     </section>
   );

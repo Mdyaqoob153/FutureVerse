@@ -1,4 +1,4 @@
-import { useRef, useEffect } from "react";
+import { useRef, useEffect, useState } from "react";
 import { useFrame } from "@react-three/fiber";
 import { useTexture } from "@react-three/drei";
 import * as THREE from "three";
@@ -10,9 +10,27 @@ export default function Earth() {
 
   const rotationSpeed = useRef(0.0025);
 
+  const [isMobile, setIsMobile] = useState(false);
+
   const dayTexture = useTexture(
     "/textures/earth_day.jpg"
   );
+
+  useEffect(() => {
+    const checkScreen = () => {
+      setIsMobile(window.innerWidth <= 768);
+    };
+
+    checkScreen();
+
+    window.addEventListener("resize", checkScreen);
+
+    return () =>
+      window.removeEventListener(
+        "resize",
+        checkScreen
+      );
+  }, []);
 
   useEffect(() => {
     let timeout: number;
@@ -27,10 +45,16 @@ export default function Earth() {
       }, 250);
     };
 
-    window.addEventListener("scroll", handleScroll);
+    window.addEventListener(
+      "scroll",
+      handleScroll
+    );
 
     return () =>
-      window.removeEventListener("scroll", handleScroll);
+      window.removeEventListener(
+        "scroll",
+        handleScroll
+      );
   }, []);
 
   useFrame((state) => {
@@ -39,20 +63,23 @@ export default function Earth() {
     // Earth Rotation
 
     if (earthRef.current) {
-      earthRef.current.rotation.y += rotationSpeed.current;
+      earthRef.current.rotation.y +=
+        rotationSpeed.current;
     }
 
     // Atmosphere Rotation
 
     if (glowRef.current) {
-      glowRef.current.rotation.y += rotationSpeed.current * 0.8;
+      glowRef.current.rotation.y +=
+        rotationSpeed.current * 0.8;
     }
 
     // Floating Animation
 
     if (groupRef.current) {
       groupRef.current.position.y =
-        0.4 + Math.sin(time * 0.4) * 0.12;
+        (isMobile ? -1.2 : 0.6) +
+        Math.sin(time * 0.4) * 0.12;
     }
 
     // Atmosphere Pulse
@@ -62,18 +89,30 @@ export default function Earth() {
         glowRef.current.material as THREE.MeshBasicMaterial;
 
       material.opacity =
-        0.15 + Math.sin(time * 1.8) * 0.02;
+        0.15 +
+        Math.sin(time * 1.8) * 0.02;
     }
   });
 
   return (
     <group
       ref={groupRef}
-      position={[2.8, 0.6, 0]}
+      position={
+        isMobile
+          ? [0, -1.2, 0]
+          : [2.8, 0.6, 0]
+      }
     >
       {/* Earth */}
+
       <mesh ref={earthRef}>
-        <sphereGeometry args={[1.8, 128, 128]} />
+        <sphereGeometry
+          args={[
+            isMobile ? 1.15 : 1.8,
+            128,
+            128,
+          ]}
+        />
 
         <meshStandardMaterial
           map={dayTexture}
@@ -83,8 +122,15 @@ export default function Earth() {
       </mesh>
 
       {/* Atmosphere Glow */}
+
       <mesh ref={glowRef}>
-        <sphereGeometry args={[1.92, 128, 128]} />
+        <sphereGeometry
+          args={[
+            isMobile ? 1.25 : 1.92,
+            128,
+            128,
+          ]}
+        />
 
         <meshBasicMaterial
           color="#60a5fa"
